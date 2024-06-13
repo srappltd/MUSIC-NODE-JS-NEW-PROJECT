@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Music Online - Deshboard</title>
+    <link rel="shortcut icon" href="https://www.wynk.in/assets/icons/icon-384x384.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="../stylesheet/style.css">
+</head>
+<body>
+    <div id="main">
+        <%- include("user-nav.ejs")%>
+        <!-- // slider top  -->
+        <% if(allSliders.length != 0){%>
+        <div class="slider-page">
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                        <%allSliders.reverse().forEach(slider=>{%>
+                            
+                            <div class="swiper-slide"><a href="#" class="slider-img"><img src="../admin/slider/<%= slider.picture%>" alt=""></a></div>
+                        <%})%>
+                </div>
+                <div class="swiper-button-next">
+                    <span class="w-6 h-6 text-white-right"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg></span>
+                </div>
+                <div class="swiper-button-prev">
+                    <span class="w-6 h-6 text-white-left"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" ><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg></span>
+                </div>
+            <!-- <div class="swiper-pagination"></div> -->
+            </div>
+        </div>
+        <%}%>
+
+        <% if(allCategory.length != 0){%>
+            <% allCategory.reverse().forEach(category=>{%>
+                <!-- // <%= category.title%> Release  -->
+                <% if(category.songid.length != 0){%>
+                    <div class="card-pg">
+                        <h2><%= category.title%></h2>
+                        <div class="card-pg-btm">
+                            <!-- Swiper -->
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    
+                                        <% category.songid.reverse().forEach(songs=>{%>
+                                            <div class="swiper-slide">
+                                                <a href="/play?v=<%= songs._id%>" class="card-a">
+                                                    <div class="card">
+                                                        <img src="../uploads/<%= songs.poster%>" alt="">
+                                                        <div class="card-cover">
+                                                            <span>
+                                                                <svg class="bi bi-play-fill" fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <p class="title"><%= songs.title%></p>
+                                                </a>
+                                            </div>
+    
+                                        <%})%>
+                                </div>
+                                <div class="swiper-button-next">
+                                    <span class="w-6 h-6 text-white-right"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg></span>
+                                </div>
+                                <div class="swiper-button-prev">
+                                    <span class="w-6 h-6 text-white-left"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" ><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg></span>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                <%}%>
+            <%})%>
+        <%}%>
+
+        <% if(allCategory.length == 0){%>
+            <% allCategory.forEach(category=>{%>
+                <!-- // Top Indie Artists  -->
+                <% if(category.artistid[0].types == "artist"){%>
+                    <div class="card-pg">
+                        <h2><%= allCategory.title%></h2>
+                        <div class="card-pg-btm">
+                            <!-- Swiper -->
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    <% if(category.songid.length != 0){%>
+                                        <% category.songid.reverse().forEach(songs=>{%>
+                                            <div class="swiper-slide">
+                                                <a href="#" class="card-a">
+                                                    <div class="card-circle">
+                                                        <img src="https://img.wynk.in/unsafe/220x220/filters:no_upscale():strip_exif():format(webp)/http://s3.ap-south-1.amazonaws.com/discovery-prod-arsenal/arsenal/artworks/656d965729754375e3025530/COLLECTION_106362634348246.png" alt="">
+                                                        <div class="card-cover">
+                                                            <span>
+                                                                <svg class="bi bi-play-fill" fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        <%})%>
+                                    <%}%>
+                                    
+                                    
+                                    
+                                </div>
+                                <div class="swiper-button-next">
+                                    <span class="w-6 h-6 text-white-right"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg></span>
+                                </div>
+                                <div class="swiper-button-prev">
+                                    <span class="w-6 h-6 text-white-left"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" ><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg></span>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+    
+                            
+                        </div>
+                    </div>
+                <%}%>
+                
+            <%})%>
+        <%}%>
+        
+        
+
+        <!-- // footer  -->
+        <footer>
+            <div class="footer-lt">
+                <a href="#">ABOUT US</a>
+                <a href="#">PRIVACY POLICY</a>
+                <a href="#">TERMS OF USE</a>
+                <a href="#">CONTACT US</a>
+                <a href="#">HELLOTUNES</a>
+            </div>
+            <div class="footer-rt">
+                <a href="#"><svg height="24" id="Layer_1" style="enable-background:new 0 0 512 512; fill:white;" version="1.1" viewBox="0 0 512 512" width="24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M346.8,80c22.3,0,43.8,9.3,59,25.6l6.1,6.5l8.7-1.7c4.5-0.9,8.9-1.9,13.3-3.1c-1,1.4-5.7,6.1-11,10.8  c-4.5,4-17.8,16.5-17.8,16.5s13,4.1,21.1,5s17.4-0.6,18.9-0.8c-2.8,2.3-7.8,5.8-10.8,7.9l-7,5.1l0.4,8.6c0.2,3.8,0.3,7.8,0.3,11.8  c0,30.2-5.9,61.8-17,91.5c-11.7,31.2-28.5,59.4-50,83.8c-23,26.1-50.2,46.5-81.1,60.8c-33.8,15.7-71.3,23.6-111.5,23.6  c-28.9,0-57.4-4.8-84.5-14.2c9.9-1.9,19.6-4.6,29.1-7.9c21.7-7.6,41.9-18.7,60.1-33l35.3-27.7l-44.9-0.8  c-26.1-0.5-49.7-13.4-64.3-33.9c7.3-0.5,14.5-1.8,21.5-3.7l60.7-20.2l-61.7-10.9c-29.6-5.9-52.8-27.9-61.3-55.8  c7.8,2,15.4,2.8,23.9,3.3c0,0,31.8,1.4,55.8-0.1c-13-6.2-46.4-29.2-46.4-29.2c-22.5-15.1-36-40.2-36-67.4c0-6.4,0.8-12.8,2.2-19  c21.9,22.4,47,41.1,75.1,55.5c37,19.1,76.9,29.8,118.6,31.9l21.2,1.1l-4.8-20.7c-1.4-5.9-2.1-12.1-2.1-18.5  C265.9,116.3,302.2,80,346.8,80 M346.8,64c-53.5,0-96.8,43.4-96.8,96.9c0,7.6,0.8,15,2.5,22.1C172,179,100.6,140.4,52.9,81.7  c-8.3,14.3-13.1,31-13.1,48.7c0,33.6,17.1,63.3,43.1,80.7C67,210.7,52,206.3,39,199c0,0.4,0,0.8,0,1.2c0,47,33.4,86.1,77.7,95  c-8.1,2.2-16.7,3.4-25.5,3.4c-6.2,0-12.3-0.6-18.2-1.8c12.3,38.5,48.1,66.5,90.5,67.3c-33.1,26-74.9,41.5-120.3,41.5  c-7.8,0-15.5-0.5-23.1-1.4C62.9,432,113.8,448,168.4,448C346.6,448,444,300.3,444,172.2c0-4.2-0.1-8.4-0.3-12.5  c18.9-13.7,35.3-30.7,48.3-50.2c-17.4,7.7-36,12.9-55.6,15.3c20-12,35.4-31,42.6-53.6c-18.7,11.1-39.4,19.2-61.5,23.5  C399.8,75.8,374.6,64,346.8,64L346.8,64z"/></svg></a>
+                <a href="#"><svg height="24" id="Layer_1" style="enable-background:new 0 0 512 512; fill:white;" version="1.1" viewBox="0 0 512 512" width="24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M288,192v-38.1c0-17.2,3.8-25.9,30.5-25.9H352V64h-55.9c-68.5,0-91.1,31.4-91.1,85.3V192h-45v64h45v192h83V256h56.4l7.6-64  H288z M330.2,240h-41.1H272v15.5V432h-51V255.5V240h-14.9H176v-32h30.1H221v-16.5v-42.2c0-24.5,5.4-41.2,15.5-51.8  C247.7,85.5,267.6,80,296.1,80H336v32h-17.5c-12,0-27.5,1.1-37.1,11.7c-8.1,9-9.4,20.1-9.4,30.1v37.6V208h17.1H334L330.2,240z"/></svg></a>
+                <a href="#"><svg height="24" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2; fill:white;" fill="white" version="1.1" viewBox="0 0 600 600" width="24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="matrix(1.01619,0,0,1.01619,44,43.8384)"><path d="M251.921,0.159C183.503,0.159 174.924,0.449 148.054,1.675C121.24,2.899 102.927,7.157 86.902,13.385C70.336,19.823 56.287,28.437 42.282,42.442C28.277,56.447 19.663,70.496 13.225,87.062C6.997,103.086 2.739,121.399 1.515,148.213C0.289,175.083 0,183.662 0,252.08C0,320.497 0.289,329.076 1.515,355.946C2.739,382.76 6.997,401.073 13.225,417.097C19.663,433.663 28.277,447.712 42.282,461.718C56.287,475.723 70.336,484.337 86.902,490.775C102.927,497.002 121.24,501.261 148.054,502.484C174.924,503.71 183.503,504 251.921,504C320.338,504 328.917,503.71 355.787,502.484C382.601,501.261 400.914,497.002 416.938,490.775C433.504,484.337 447.553,475.723 461.559,461.718C475.564,447.712 484.178,433.663 490.616,417.097C496.843,401.073 501.102,382.76 502.325,355.946C503.551,329.076 503.841,320.497 503.841,252.08C503.841,183.662 503.551,175.083 502.325,148.213C501.102,121.399 496.843,103.086 490.616,87.062C484.178,70.496 475.564,56.447 461.559,42.442C447.553,28.437 433.504,19.823 416.938,13.385C400.914,7.157 382.601,2.899 355.787,1.675C328.917,0.449 320.338,0.159 251.921,0.159ZM251.921,45.551C319.186,45.551 327.154,45.807 353.718,47.019C378.28,48.14 391.619,52.244 400.496,55.693C412.255,60.263 420.647,65.723 429.462,74.538C438.278,83.353 443.737,91.746 448.307,103.504C451.757,112.381 455.861,125.72 456.981,150.282C458.193,176.846 458.45,184.814 458.45,252.08C458.45,319.345 458.193,327.313 456.981,353.877C455.861,378.439 451.757,391.778 448.307,400.655C443.737,412.414 438.278,420.806 429.462,429.621C420.647,438.437 412.255,443.896 400.496,448.466C391.619,451.916 378.28,456.02 353.718,457.14C327.158,458.352 319.191,458.609 251.921,458.609C184.65,458.609 176.684,458.352 150.123,457.14C125.561,456.02 112.222,451.916 103.345,448.466C91.586,443.896 83.194,438.437 74.378,429.621C65.563,420.806 60.103,412.414 55.534,400.655C52.084,391.778 47.98,378.439 46.859,353.877C45.647,327.313 45.391,319.345 45.391,252.08C45.391,184.814 45.647,176.846 46.859,150.282C47.98,125.72 52.084,112.381 55.534,103.504C60.103,91.746 65.563,83.353 74.378,74.538C83.194,65.723 91.586,60.263 103.345,55.693C112.222,52.244 125.561,48.14 150.123,47.019C176.687,45.807 184.655,45.551 251.921,45.551Z" style="fill-rule:nonzero;"/><path d="M251.921,336.053C205.543,336.053 167.947,298.457 167.947,252.08C167.947,205.702 205.543,168.106 251.921,168.106C298.298,168.106 335.894,205.702 335.894,252.08C335.894,298.457 298.298,336.053 251.921,336.053ZM251.921,122.715C180.474,122.715 122.556,180.633 122.556,252.08C122.556,323.526 180.474,381.444 251.921,381.444C323.367,381.444 381.285,323.526 381.285,252.08C381.285,180.633 323.367,122.715 251.921,122.715Z" style="fill:rgb(255, 255, 255);fill-rule:nonzero;"/><path d="M416.627,117.604C416.627,134.3 403.092,147.834 386.396,147.834C369.701,147.834 356.166,134.3 356.166,117.604C356.166,100.908 369.701,87.374 386.396,87.374C403.092,87.374 416.627,100.908 416.627,117.604Z" style="fill:rgb(3,4,4);fill-rule:nonzero;"/></g></svg></a>
+                <a href="#"><svg width="24" height="24" fill="white" id="Layer_1" style="enable-background:new 0 0 100 100;" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M91,12.3C86.7,8.6,79.9,8,73,10.6c-7.2,2.7-15.5,9.6-17.3,20.8c-0.1,0.4,0.1,0.8,0.4,1c0.3,0.2,0.7,0.2,1.1,0  c3.8-2.3,7.2-2.6,9.2-0.7c2.4,2.3,2.4,7.2-0.1,12c-6.7,12.7-10.6,16-11.7,16c-2,0-4.7-11-6.3-17.6c-0.6-2.6-1.1-5.7-1.7-8.9  c-1.5-9.1-3-18.5-8.1-22.1c-1.9-1.3-4.1-1.7-6.7-1.2C19.9,12.2,4.9,30.4,4.2,31.2c-0.3,0.4-0.3,0.9,0,1.2l3.6,4.9  c0.2,0.2,0.4,0.4,0.7,0.4c0.3,0,0.5,0,0.8-0.2c2.1-1.7,7.2-4.9,8.7-3.2c1.2,1.5,4.9,13.9,7.9,23.8c3,9.8,5.7,19.1,7.3,22.3  c1.8,3.8,5.7,8.8,11,10.2c1,0.3,2,0.4,3,0.4c2.2,0,4.4-0.7,6.5-2.1c7.6-5,36.8-29.7,42-59.6C97.2,19.7,94,14.7,91,12.3z"/></svg></a>
+                <a href="#"><svg width="24" height="24" fill="white" id="Layer_1" style="enable-background:new 0 0 100 100;" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50,4C24.7,4,4,24.7,4,50s20.6,46,46,46s46-20.6,46-46S75.4,4,50,4z M71.6,71.5c0,0,0,0.1-0.1,0.1c-0.8,1.2-2,1.8-3.2,1.8  c-0.7,0-1.4-0.2-2-0.6c-10.2-6.3-23.3-7.7-38.8-4.1c-2.1,0.6-4-0.9-4.5-2.7c-0.6-2.3,0.9-4.1,2.7-4.6c17.7-4,32.6-2.3,44.4,5  c0.9,0.4,1.5,1,1.8,1.9C72.2,69.3,72.1,70.5,71.6,71.5z M76.9,59.3L76.9,59.3c-0.8,1.1-1.9,1.9-3.2,2.1c-0.2,0-0.5,0.1-0.7,0.1  c-0.8,0-1.6-0.3-2.3-0.7c-12-7.3-30.1-9.4-43.9-5c-2.5,0.6-5-0.7-5.6-3c-0.6-2.5,0.7-4.9,3-5.5c16.5-5,37.2-2.5,51.4,6.2  c0.8,0.4,1.5,1.3,1.8,2.5C77.9,57,77.6,58.3,76.9,59.3z M83.2,45.6c-1,1.4-2.7,2.1-4.4,2.1c-0.9,0-1.9-0.2-2.7-0.7c0,0,0,0,0,0  c-13.9-8.3-37.8-9.3-51.4-5.1c-2.7,0.8-5.5-0.7-6.4-3.3c-0.8-2.7,0.7-5.6,3.3-6.4c16.2-4.8,43-3.8,59.8,6.2  C83.8,39.6,84.7,42.9,83.2,45.6C83.3,45.5,83.3,45.5,83.2,45.6z"/></svg></a>
+            </div>
+            
+        </footer>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".slider-page .mySwiper", {
+            slidesPerView: "auto",
+            spaceBetween: 20,
+            // cssMode: true,
+            // mousewheel: true,
+            keyboard: true,
+            loop:true,
+            navigation: {
+                nextEl: ".slider-page .swiper-button-next",
+                prevEl: ".slider-page .swiper-button-prev",
+            },
+        });
+
+        document.querySelectorAll(".card-pg").forEach(elem=>{
+            const myslide =  elem.querySelector(".card-pg .mySwiper")
+            const mynext =  elem.querySelector(".card-pg .swiper-button-next")
+            const mypre =  elem.querySelector(".card-pg .swiper-button-prev")
+            var swiper = new Swiper(myslide, {
+            slidesPerView: 6.5,
+            // centeredSlides: true,
+            spaceBetween: 20,
+            loop:true,
+            grabCursor: true,
+            // mousewheel: true,
+            keyboard: true,
+            navigation: {
+                nextEl: mynext,
+                prevEl: mypre,
+            },
+        });
+        })
+        
+    </script>
+    <script>
+        async function SliderData(){
+            let slideData = await axios.get("http://localhost:3000/admin/slider/")
+            slideData.data.forEach(data=>{
+                console.log(data.picture)
+            })
+        }
+        SliderData()
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,739 @@
+@font-face {
+    font-family: as;
+    src: url("../fonts/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvQ.woff2");
+}@font-face {
+    font-family: as1;
+    src: url("../fonts/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2");
+}@font-face {
+    font-family: as2;
+    src: url("../fonts/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2");
+}
+:root{
+    --textColor:rgb(255, 255, 255);
+    --bodyColor:#0C0F12;
+    --textSize: 16px;
+    --border:1px solid gray;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: as;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    color: var(--textColor);
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: var(--bodyColor);
+}
+a{
+    text-decoration: none;
+    color: var(--textColor);
+}
+#main{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.nav{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    padding: 0 40px;
+    z-index: 100;
+    align-items: center;
+    background-color: #1B1A1A;
+    justify-content: space-between;
+}
+.nav-lt{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 24px;
+    /* background-color: aqua; */
+}
+.nav-rt{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    justify-content: right;
+}
+.nav-rt a{
+    display: flex;
+    align-items: center;
+    font-size:var(--textSize);
+    white-space: nowrap;
+    gap: 5px;
+}
+.search-nav{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    /* background-color: aqua; */
+    border-radius: 50px;
+    border: var(--border);
+    overflow: hidden;
+}
+.search-nav span{
+    display: flex;
+    align-items: center;
+    width: 50px;
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.search-nav svg{
+    color: white;
+}
+.search-nav input{
+    width: 100%;
+    height: 100%;
+    padding: 11px 10px;
+    background:none;
+    border: none;
+    outline: none;
+    font-size: var(--textSize);
+    color: var(--textColor);   
+}
+.nav2{
+    width: 100%;
+    height: 10vh;
+    padding: 0px 40px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.nav2 a{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: rgb(150, 150, 150);
+}
+.all{
+    color: var(--textColor) !important;
+}
+.slider-page{
+    width: 100%;
+    height: 50vh;
+    /* background-color: white; */
+}
+.slider-page .swiper {
+    width: 100%;
+    height: 100%;
+    padding: 0 40px;
+}
+
+.slider-page .swiper-slide{
+    width: 75%;
+    flex-shrink: 0;
+    height: 100%;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+    /* background:red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.slider-page .slider-img{
+    width: 100%;
+    height: 100%;
+}
+.slider-page .swiper-slide img{
+    width: 100%;
+}
+.swiper-button-next::after,.swiper-button-prev::after{
+    content: "";
+}
+.swiper-button-next{
+    width: 40px;
+    height: 40px;
+}
+.text-white-right,.text-white-left{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(115, 115, 115, 0.482);
+    flex-shrink: 0;
+    padding: 7px;
+    border-radius: 50%;
+    backdrop-filter: blur(8px);
+    color: white;
+}
+.slider-page .text-white-right{
+    right: 60px;
+}
+.slider-page .text-white-left{
+    left: 60px;
+}
+
+.card-pg{
+    width: 100%;
+    /* background-color: aliceblue; */
+    margin-top: 30px;
+    padding: 0 40px;
+}
+.card-pg h2{
+    font-weight: 400;
+}
+.card-a{
+    width: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.card{
+    width: 100%;
+    height: 210px;
+    background-color: #1B1A1A;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.card-a p{
+    font-size: 15px;
+}
+.card-cover{
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    left: 0;
+    transition: all ease .15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:linear-gradient(rgba(0, 0, 0, 0.34),rgba(0, 0, 0, 0.518));
+}
+.card-cover span{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(132, 132, 132, 0.329);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+}
+.card:hover .card-cover{
+    opacity: 1;
+}
+.card-a .title{
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top: 5px;
+    font-family: as;
+}
+
+.card-pg .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.card-pg .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* background: #fff; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.card-pg .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card-pg .card-circle img{
+    border-radius: 50% !important;
+}
+
+footer{
+    width: 100%;
+    height: 10vh;
+    border-top: var(--border);
+    margin-top: 40px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: space-between;
+}
+.foter-ply{
+    margin-bottom: 12vh;
+}
+footer a{
+    font-size: 14px;
+    font-weight: 300;
+}
+.footer-lt{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}.footer-rt{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 30px;
+}
+
+
+/* // play page --------------------------- */
+.page1{
+    width: 100%;
+    padding: 0 40px;
+    display: flex;
+}
+.pagelt{
+    width: 300px;
+}
+.pagelt .thumb{
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    object-fit: contain;
+    /* object-position: ; */
+}
+.pagelt .artist{
+    margin-top: 40px;
+    font-weight: 400;
+    padding-bottom: 5px;
+}
+.art-card{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+    margin-top: 10px;
+}
+.art-card span{
+    white-space: nowrap;
+    width: 55%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.art-img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
+}
+.pagert{
+    width: calc(100% - 300px);
+    /* height: 10vh; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    /* background-color: aliceblue; */
+}
+.pagert a{
+    color: gray;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all ease .14s;
+}
+.pagert a:hover{
+    color: var(--textColor);
+}
+.pagert small{
+    color: gray;
+    font-size: 12px;
+}
+.pagert-btn{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    position: relative;
+    justify-content: space-between;
+}
+.page-btn-lt{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.pagert-btn .btns{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px;
+    border-radius: 50px;
+    border: var(--border);
+}
+.Similar-song{
+    margin-top: 30px;
+}
+.Similar-song h3{
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+.similer-card{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all ease .15s;
+    cursor: pointer;
+    border: 1px solid var(--bodyColor);
+    /* background-color: aqua; */
+}
+.similer-card:hover{
+    border: var(--border);
+
+}
+.simi-img{
+    width: 55px;
+    border-radius: 5px;
+    object-fit: contain;
+    height: 55px;
+}
+.similer-card img{
+    width: 55px;
+    border-radius: 5px;
+    object-fit: contain;
+    height: 55px;
+}
+.similer-card-lt{
+    /* width: 80%; */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+}
+.similer-card-lt p{
+    font-size: 15px;
+    white-space: nowrap;
+    font-weight: 500;
+    width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.similer-card-rt{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 30px;
+}
+.about-pg{
+    width: 100%;
+    padding: 20px 40px;
+}
+.about{
+    width: 100%;
+    /* height: 60vh; */
+    border: var(--border);
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 30px;
+    display: flex;
+    gap: 40px;
+    background-image: url(https://www.wynk.in/assets/images/quote.png);
+    background-position: top right 30px;
+    background-repeat: no-repeat;
+}
+.about-lt{
+    display: flex;
+    justify-content: center;
+}
+.about-img{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 5px;
+}.about-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.about-rt{
+    width: calc(100% - 150px);
+}
+.about-rt table{
+    width: 85%;
+    border: 1.5px solid rgb(71, 71, 71);
+    border-collapse: collapse;
+    padding: 10px 15px;
+    font-weight: 400;
+}.about-rt td{
+    border: 1.5px solid rgb(71, 71, 71);
+    border-collapse: collapse;
+    padding: 10px 15px;
+    font-weight: 400;
+}
+.about-rt td{
+    border: 1.5px solid rgb(71, 71, 71);
+    border-collapse: collapse;
+    padding: 10px 15px;
+    font-weight: 400;
+}
+.about-rt p{
+    font-weight: 400;
+    font-size: 14px;
+    width: 85%;
+    margin-top: 10px;
+    color: rgb(198, 198, 198);
+}
+.about-rt tr{
+    width: 100%;
+    /* background-color: aliceblue; */
+}
+.name{
+    width: 30%;
+    color: rgb(186, 186, 186);
+}.val{
+    width: 70%;
+    color: gray;
+}
+.menu{
+    /* width: 200px; */
+    /* height: 300px; */
+    background-color: #21252D;
+    border-radius: 10px;
+    position: absolute;
+    top: -100px;
+    right: 50px;
+    padding: 5px 0;
+    display: none;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.menu a{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 15px;
+    font-size: 16px; 
+    background-color: #21252D;
+}
+.menu a:hover{
+    background-color: black;
+}
+
+
+
+/* // login page  */
+.login-pg{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+}
+.login-g{
+    width: 60%;
+    height: 85%;
+    display: flex;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.login-lt{
+    width: 40%;
+    height: 100%;
+    background-image: url(https://www.wynk.in/_next/static/media/login.344ba0e0.png);
+    background-position: center;
+    background-size: cover;
+}.login-rt{
+    width: 60%;
+    height: 100%;
+    position: relative;
+}
+.login-pages{
+    width: 100%;
+    height: 100%;
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    background-color: #21252D;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.login-pages h1{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    /* background-color: #FF295C; */
+}
+.login-pages .gert{
+    font-size: 16px;
+    margin-top: 20px;
+    width: 80%;
+}
+.login-pages form{
+    width: 80%;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+}
+label{
+    font-size: 16px;
+}
+.input input{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background: none;
+    border: 1px solid rgb(174, 174, 174);
+    border-radius: 3px;
+    outline: none;
+}
+button{
+    background-color: #FF295C;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+}
+.create{
+    margin-top: 50px;
+}
+.create a{
+    color: rgb(0, 191, 255);
+    cursor: pointer;
+}
+.login-nav{
+    position: fixed;
+    top: 0;
+}
+
+
+/* // music  */
+.music{
+    width: 100%;
+    height: 12vh;
+    background-color: #1B1A1A;
+    position: fixed;
+    bottom: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+.music-lt{
+    width: 33%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* background-color: #FF295C; */
+    overflow: hidden;
+}
+.music-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* pointer-events: none; */
+}
+.music svg{
+    width: 24px;
+    height: 24px;
+    fill: white;
+    cursor: pointer;
+    /* stroke: white; */
+}
+.music i{
+    color: white;
+    cursor: pointer;
+}
+.shuffle{
+    margin-right: 30px;
+}
+.music-center{
+    width: 33%;
+    /* background-color: #FF295C; */
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.play svg{
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
+}
+.music-right{
+    width: 33%;
+    /* background-color: #FF295C; */
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 10px;
+}
+.music-right small{
+    font-size: 14px;
+    padding: 0 30px;
+    cursor: pointer;
+}
+.music-right small span{
+    font-weight: 400;
+    color: rgb(211, 211, 211);
+    cursor: pointer;
+    
+}
+.music-name{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.music-name h4{
+    width: 25%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400;
+    cursor: pointer;
+}
+.music-name small{
+    color: gray;
+    cursor: pointer;
+}
+.music-pro{
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(74, 74, 74);
+}
+.music-progress{
+    width: 0;
+    height: 100%;
+    background-color: #FF295C;
+    cursor: pointer;
+}

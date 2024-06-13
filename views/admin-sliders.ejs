@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Music Online - Admin Login</title>
+    <link rel="shortcut icon" href="https://www.wynk.in/assets/icons/icon-384x384.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheet/style.css">
+    <link rel="stylesheet" href="../stylesheet/admin-dehboard.css">
+</head>
+<body>
+    <div id="main">
+        <%- include("admin-nav.ejs")%>
+        <div class="admin-pg">
+            <%- include("site-menu.ejs")%>
+            <div class="admin-pg-rt">
+                <!-- // slider page  -->
+                <div class="admim-pages slider-page active">
+                    <div class="cate-new slider-new">
+                        <h3>Slider :-</h3>
+                        <a><?xml version="1.0" ?><svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M38 26H26v12h-4V26H10v-4h12V10h4v12h12v4z"/><path d="M0 0h48v48H0z" fill="none"/></svg> add category</a>
+                    </div>
+                    <div class="cate-btm">
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Slider Image</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                            <% if(allSongs != null){%>
+                                <%allSliders.reverse().forEach(slider=>{%>
+                                    <tr>
+                                        <td class="cate-td"><h4><%= slider.name%></h4></td>
+                                        <td class="cate-td"><img src="../admin/slider/<%= slider.picture%>" alt=""></td>
+                                        <td class="cate-td"><span class="acitve">Active</span></td>
+                                        <td class="cate-td cate-flex">
+                                            <a href="#" class="cate-edit-btn cate-edit"><?xml version="1.0" ?><svg class="feather feather-edit" fill="none" height="24" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span>
+                                            <a href="/admin/slider-del?s=<%= slider._id%>" class="cate-edit-btn cate-close"><?xml version="1.0" ?><svg class="feather feather-x" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg></span>
+                                        </td>
+                                    </tr>
+                                <%})%>
+                            <%}%>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- //slider form  -->
+        <div class="slider-form">
+            <form action="/admin/slider" class="category-form" method="post" enctype="multipart/form-data">
+                <h3>add Slider</h3>
+                <div class="input">
+                    <label for="">Name</label>
+                    <input type="text" name="name" required id="" placeholder="Slider name">
+                </div>
+                <div class="input">
+                    <label for="">Slider Image</label>
+                    <input style="display: none;" accept="image/*" required class="select-input" type="file" name="slider" id="" placeholder="Category name">
+                    <div class="select-img">
+                        <div class="select-title">Upload image</div>
+                        <div class="select-btn">Select</div>
+                    </div>
+                </div>
+                <button>Save</button>
+            </form>
+            <div class="ct-f-close"><svg class="feather feather-x" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg></div>
+        </div>
+        
+    </div>
+    <script src="../script/admin.js"></script>
+    <script>
+        document.querySelector(".slider-new a").addEventListener("click",()=>{
+            document.querySelector(".slider-form").style.display = "flex"
+        })
+        // close form when clicking
+        document.querySelectorAll(".ct-f-close").forEach(elem=>{
+            elem.addEventListener("click",()=>{
+                document.querySelectorAll(".slider-form").forEach(elfs=>{
+                    elfs.style.display = "none"
+                })
+            })
+        })
+    </script>
+</body>
+</html>

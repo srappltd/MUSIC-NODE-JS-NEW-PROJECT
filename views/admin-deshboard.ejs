@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Music Online - Admin Login</title>
+    <link rel="shortcut icon" href="https://www.wynk.in/assets/icons/icon-384x384.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheet/style.css">
+    <link rel="stylesheet" href="../stylesheet/admin-dehboard.css">
+</head>
+<body>
+    <div id="main">
+        <%- include("admin-nav.ejs")%>
+        <div class="admin-pg">
+            <%- include("site-menu.ejs")%>
+            <div class="admin-pg-rt">
+
+                <!-- // deshboard page  -->
+                <div class="admim-pages desh-page active">
+                    <div class="desh-card">
+                        <a href="" class="desh-cover">
+                            <span>10</span>
+                            <small>Categories</small>
+                        </a>
+                    </div>
+                    <div class="desh-card">
+                        <a href="" class="desh-cover">
+                            <span><%= allArtists.length%></span>
+                            <small>Artists</small>
+                        </a>
+                    </div>
+                    <div class="desh-card">
+                        <a href="" class="desh-cover">
+                            <span>10</span>
+                            <small>Album</small>
+                        </a>
+                    </div>
+                    <div class="desh-card">
+                        <a href="" class="desh-cover">
+                            <span><%=allSongs.length%></span>
+                            <small>Songs</small>
+                        </a>
+                    </div>
+                    <div class="desh-card">
+                        <a href="" class="desh-cover">
+                            <span>10</span>
+                            <small>Playlist</small>
+                        </a>
+                    </div>
+                    <div class="desh-card">
+                        <a href="" class="desh-cover">
+                            <span><%= allUsers.length%></span>
+                            <small>users</small>
+                        </a>
+                    </div>
+                    <div class="desh-card">
+                        <a href="" class="desh-cover">
+                            <span>10</span>
+                            <small>comments</small>
+                        </a>
+                    </div>
+                    <div class="desh-card">
+                        <a href="" class="desh-cover">
+                            <span><%= allSliders.length%></span>
+                            <small>slider</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../script/admin.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>

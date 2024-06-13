@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Music Online - <%= songFind.title%></title>
+    <link rel="shortcut icon" href="https://www.wynk.in/assets/icons/icon-384x384.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="../stylesheet/style.css">
+</head>
+<body>
+    <div id="main">
+        <%- include("user-nav.ejs")%>
+        
+        <div class="page1">
+            <div class="pagelt">
+                <a href="#">
+                    <img class="thumb" src="../uploads/<%= songFind.poster%>" alt="">
+                </a>
+                <h3 class="artist">Artists</h3>
+                <div class="art-card">
+                    <img class="art-img" src="https://img.wynk.in/unsafe/80x80/filters:no_upscale():strip_exif():format(webp)/http://s3.ap-south-1.amazonaws.com/discovery-prod-zion/zion/1659428507015-srch_believe_A10320WT0329556963.jpg" alt="">
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate deserunt quod voluptatibus neque, nisi dolorum laudantium non ab numquam, ullam amet vero illum sit! Reiciendis ducimus reprehenderit dignissimos cupiditate ex?</span>
+                </div>
+                <div class="art-card">
+                    <img class="art-img" src="https://img.wynk.in/unsafe/80x80/filters:no_upscale():strip_exif():format(webp)/http://s3.ap-south-1.amazonaws.com/discovery-prod-zion/zion/1659428507015-srch_believe_A10320WT0329556963.jpg" alt="">
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate deserunt quod voluptatibus neque, nisi dolorum laudantium non ab numquam, ullam amet vero illum sit! Reiciendis ducimus reprehenderit dignissimos cupiditate ex?</span>
+                </div>
+                
+            </div>
+            <div class="pagert">
+                <h1><%= songFind.title%></h1>
+                <a href="#"><%= songFind.artistid.name%></a>
+                <small><small class="audio-duration">00:00</small> • T-Series</small>
+                <div class="pagert-btn">
+                    <div class="page-btn-lt">
+                        <a class="btns play-btn" style="background-color: #E72154; border: none;">
+                            <svg class="bi bi-play-fill ply-btn" fill="currentColor" height="22" viewBox="0 0 16 16" width="22" xmlns="http://www.w3.org/2000/svg"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>
+                            <svg class="pau-btn" height="22" id="Layer_1" style="enable-background:new 0 0 512 512; fill:white; display: none;" version="1.1" viewBox="0 0 512 512" width="22" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><rect height="320" width="79" x="128" y="96"/><rect height="320" width="79" x="305" y="96"/></g></svg>
+                            <span class="ply-now">Play now</span>
+                        </a>
+                        <a href="#" class="btns">
+                            <svg fill="white" width="22" height="22" id="object" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title/><path d="M20.14,17A1.86,1.86,0,1,0,22,18.86,1.85,1.85,0,0,0,20.14,17Z"/><path d="M9.86,19.29a1.86,1.86,0,1,0,1.85,1.85A1.85,1.85,0,0,0,9.86,19.29Z"/><path d="M16,1A15,15,0,1,0,31,16,15,15,0,0,0,16,1Zm8,17.86A3.86,3.86,0,1,1,20.14,15a3.77,3.77,0,0,1,1.86.5V9.25l-8.29,1.84V21.14a3.89,3.89,0,1,1-2-3.36V10.29a1,1,0,0,1,.79-1L22.78,7a1,1,0,0,1,.85.2A1,1,0,0,1,24,8Z"/></svg>
+                            <span> Set Free Hellotune</span>
+                        </a>
+                        <a href="/likes?like=<%= songFind._id%>" class="btns">
+                            <% if(songFind.likes.indexOf(user._id) == -1){%>
+                                <svg fill="white" height="22" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="22" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M340.8,98.4c50.7,0,91.9,41.3,91.9,92.3c0,26.2-10.9,49.8-28.3,66.6L256,407.1L105,254.6c-15.8-16.6-25.6-39.1-25.6-63.9  c0-51,41.1-92.3,91.9-92.3c38.2,0,70.9,23.4,84.8,56.8C269.8,121.9,302.6,98.4,340.8,98.4 M340.8,83C307,83,276,98.8,256,124.8  c-20-26-51-41.8-84.8-41.8C112.1,83,64,131.3,64,190.7c0,27.9,10.6,54.4,29.9,74.6L245.1,418l10.9,11l10.9-11l148.3-149.8  c21-20.3,32.8-47.9,32.8-77.5C448,131.3,399.9,83,340.8,83L340.8,83z"/></svg>
+                                <%}else{%>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" style="stroke: #E72154; fill: #E72154; padding: 2px;"><path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/></svg>
+                                <%}%>
+                            </a>
+                            <%= songFind.likes.length%>
+                    </div>
+                    <div class="page-btn-lt">
+                        <a href="../uploads/<%= songFind.url%>" download="<%= songFind.title%>" class="btns">
+                            <svg height="22" viewBox="0 0 24 24" width="22" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M22,16 L22,20 C22,21.1045695 21.1045695,22 20,22 L4,22 C2.8954305,22 2,21.1045695 2,20 L2,16 L4,16 L4,20 L20,20 L20,16 L22,16 Z M13,12.5857864 L16.2928932,9.29289322 L17.7071068,10.7071068 L12,16.4142136 L6.29289322,10.7071068 L7.70710678,9.29289322 L11,12.5857864 L11,2 L13,2 L13,12.5857864 Z" fill-rule="evenodd"/></svg>
+                            <span>Download</span>
+                        </a>
+                        <a class="menu-btn btns">
+                            <svg fill="white" width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g><path d="M0 0h24v24H0z" fill="none"/><path d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 14c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-7c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></g></svg>
+                        </a>
+                        <div class="menu">
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="inline-block" stroke="currentColor"><path d="M12 7V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 13L11.6464 15.6464C11.8417 15.8417 12.1583 15.8417 12.3536 15.6464L15 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="12" cy="12" r="9.25" stroke="currentColor" stroke-width="1.5"></circle></svg> <span>Free Download</span></a>
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="inline-block"><path d="M14.2351 2.99991C14.2426 2.99991 14.2426 2.99991 14.2351 2.99991ZM14.2351 2.99991C14.2426 2.99991 14.2501 2.99991 14.2501 2.99991H14.2351ZM20.0776 12.3524C19.2526 13.7474 18.0301 14.8649 16.5601 15.5474C15.0151 16.2074 13.4251 16.4849 11.6776 16.5149C10.9351 16.5374 9.75008 16.4999 9.75008 16.4999L10.8751 14.6249C9.32258 13.8224 8.19758 12.4274 7.71758 10.7399C7.29008 9.16491 7.53758 7.48491 8.40758 6.11241C9.68258 4.16241 11.9251 2.99241 14.2426 2.99991C15.4201 2.99991 16.5826 3.29241 17.6176 3.84741C19.1626 4.63491 20.3176 6.02991 20.7976 7.69491C21.2251 9.27741 20.9626 10.9724 20.0776 12.3524Z" stroke="currentColor" stroke-width="1.5"></path><path d="M14.077 11.6297C14.077 12.0708 13.7161 12.4317 13.275 12.4317C12.8339 12.4317 12.473 12.0708 12.473 11.6297C12.473 11.1886 12.8339 10.8277 13.275 10.8277C13.7161 10.8277 14.077 11.1886 14.077 11.6297ZM16.884 6.41675C16.884 6.19219 16.6996 6.01575 16.483 6.01575H14.478C14.2615 6.01575 14.077 6.19219 14.077 6.41675V10.2503C13.8364 10.114 13.5718 10.0257 13.275 10.0257C12.3928 10.0257 11.671 10.7475 11.671 11.6297C11.671 12.5119 12.3928 13.2337 13.275 13.2337C14.1572 13.2337 14.879 12.52 14.879 11.6297V6.81775H16.483C16.6996 6.81775 16.884 6.64131 16.884 6.41675Z" fill="white"></path><path d="M4.65917 12.8283L4.65923 12.8284L4.67152 12.8218C4.70455 12.8039 4.74911 12.8046 4.78593 12.8352C5.02689 13.2101 5.19576 13.6376 5.27922 14.0907L5.28272 14.1097L5.28721 14.1285C5.30462 14.2017 5.28707 14.2757 5.24939 14.3273L4.7059 14.8284L4.32473 15.1799L4.51888 15.6606C5.22203 17.4018 6.57106 18.7859 8.26727 19.5249L8.69375 19.7107L9.0497 19.4112L9.61303 18.9371C9.72131 18.8821 9.84122 18.8679 9.95898 18.8954C10.4096 19.023 10.8433 19.2258 11.2482 19.4913C11.2482 19.4929 11.248 19.4944 11.2476 19.4959C11.2472 19.4979 11.2463 19.5002 11.2442 19.5032L11.2328 19.5196L11.2222 19.5366C10.9211 20.0213 10.4103 20.3094 9.8766 20.3151C8.31215 20.0767 6.87745 19.2915 5.80349 18.09L5.79494 18.0804L5.78607 18.0712C5.07083 17.324 4.23798 16.1695 3.90042 15.0903C3.73336 14.5562 3.70816 14.1061 3.81154 13.7526C3.90694 13.4264 4.13485 13.0998 4.65917 12.8283Z" stroke="currentColor" stroke-width="1.5"></path></svg> <span>Set Free Hellotune</span></a>
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="inline-block" stroke="currentColor"><path d="M6 15C7.65685 15 9 13.6569 9 12C9 10.3431 7.65685 9 6 9C4.34315 9 3 10.3431 3 12C3 13.6569 4.34315 15 6 15Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16.5 21.75C18.1569 21.75 19.5 20.4069 19.5 18.75C19.5 17.0931 18.1569 15.75 16.5 15.75C14.8431 15.75 13.5 17.0931 13.5 18.75C13.5 20.4069 14.8431 21.75 16.5 21.75Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16.5 8.25C18.1569 8.25 19.5 6.90685 19.5 5.25C19.5 3.59315 18.1569 2.25 16.5 2.25C14.8431 2.25 13.5 3.59315 13.5 5.25C13.5 6.90685 14.8431 8.25 16.5 8.25Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13.9766 6.87213L8.5231 10.378" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8.5231 13.622L13.9766 17.1279" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg> <span>Share</span></a>
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></path><path d="M13.875 12L9.375 9V15L13.875 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.625 9V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg> <span>Play Next</span></a>
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><g clip-path="url(#clip0_1569_2985)"><path d="M3 7H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M3 12.5H8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M3 18H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><circle cx="17" cy="7" r="5" stroke="#22252C" stroke-width="7" stroke-linecap="round"></circle><circle cx="17" cy="7" r="6" fill="#22252C" stroke="white" stroke-width="1.5" stroke-linecap="round"></circle><path d="M17 5V9" stroke="white" stroke-width="1.5" stroke-linecap="round"></path><path d="M19 7L15 7" stroke="white" stroke-width="1.5" stroke-linecap="round"></path></g><defs><clipPath id="clip0_1569_2985"><rect width="24" height="24" fill="white"></rect></clipPath></defs></svg> <span>Add To Playlist</span></a>
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="inline-block" stroke="currentColor"><path d="M4.76971 10.458L7.06999 6.39803C7.64702 5.37958 8.72713 4.75012 9.89768 4.75012L14.3686 4.75012C15.5392 4.75012 16.6193 5.37958 17.1963 6.39803L19.4966 10.458C20.0597 11.4519 20.0597 12.6684 19.4966 13.6622L17.1963 17.7222C16.6193 18.7407 15.5392 19.3701 14.3686 19.3701L9.89768 19.3701C8.72713 19.3701 7.64702 18.7406 7.06999 17.7222L4.76971 13.6622C4.20663 12.6684 4.20663 11.4519 4.76971 10.458Z" stroke="currentColor" stroke-width="1.5"></path><path d="M12 8V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><circle cx="12" cy="15" r="1" fill="white"></circle></svg> <span>Report Abuse</span></a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="Similar-song">
+                    <h3>Similar Songs</h3>
+                    <% if(songs.length != 0){%>
+                        <% songs.reverse().forEach(song=>{%>
+                            <div class="similer-card">
+                                <a href="/play?v=<%= song._id%>" class="similer-card-lt">
+                                    <div class="simi-img">
+                                        <img src="../uploads/<%= song.poster%>" alt="">
+                                    </div>
+                                    <div class="simi-title">
+                                        <p><%= song.title%></p>
+                                        <small>00:00</small>
+                                    </div>
+                                </a>
+                                <div class="similer-card-rt">
+                                    <a href="#"><svg width="25" height="25" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cursor-pointer" fill="white" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg></a>
+                                    <a href="#"><svg width="25" height="25" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" class="w-5 h-5 inline-block"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg></a>
+                                </div>
+                            </div>
+
+                        <%})%>
+                    <%}%>
+                    
+                    
+                    
+                </div>
+            </div>
+
+        </div>
+        <!-- // Other Manan Bhardwaj Songs  -->
+        <% if(allCategory.length != 0){%>
+            <% allCategory.forEach(category=>{%>
+                <!-- // <%= category.title%> Release  -->
+                <% if(category.songid.length != 0){%>
+                    <div class="card-pg">
+                        <h2><%= category.title%></h2>
+                        <div class="card-pg-btm">
+                            <!-- Swiper -->
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    
+                                        <% category.songid.reverse().forEach(songs=>{%>
+                                            <div class="swiper-slide">
+                                                <a href="/play?v=<%= songs._id%>" class="card-a">
+                                                    <div class="card">
+                                                        <img src="../uploads/<%= songs.poster%>" alt="">
+                                                        <div class="card-cover">
+                                                            <span>
+                                                                <svg class="bi bi-play-fill" fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <p class="title"><%= songs.title%></p>
+                                                </a>
+                                            </div>
+    
+                                        <%})%>
+                                </div>
+                                <div class="swiper-button-next">
+                                    <span class="w-6 h-6 text-white-right"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg></span>
+                                </div>
+                                <div class="swiper-button-prev">
+                                    <span class="w-6 h-6 text-white-left"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" ><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg></span>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <%}%>
+            <%})%>
+        <%}%>
+
+        <!-- // about song  -->
+        <div class="about-pg">
+            <h3>About song</h3>
+            <div class="about">
+                <div class="about-lt">
+                    <div class="about-img">
+                        <img src="../admin/artists/<%= songFind.artistid.picture%>" alt="">
+                    </div>
+                </div>
+                <div class="about-rt">
+                    <table>
+                        <tr>
+                            <td class="name">Album/Movie</td>
+                            <td class="val"><%= songFind.title%></td>
+                        </tr>
+                        <tr>
+                            <td class="name">Singers</td>
+                            <td class="val"><%= songFind.artistid.name%></td>
+                        </tr>
+                        <tr>
+                            <td class="name">Music Composer</td>
+                            <td class="val">Manan Bhardwaj</td>
+                        </tr>
+                        <tr>
+                            <td class="name">Lyricist</td>
+                            <td class="val">Bhupinder Babbal</td>
+                        </tr>
+                        <tr>
+                            <td class="name">Other</td>
+                            <td class="val">Manan Bhardwaj, Bhupinder Babbal</td>
+                        </tr>
+                        <tr>
+                            <td class="name">Language</td>
+                            <td class="val">Hindi</td>
+                        </tr>
+                        <tr>
+                            <td class="name">Music Company</td>
+                            <td class="val">T-Series</td>
+                        </tr>
+                        <tr>
+                            <td class="name">Duration</td>
+                            <td class="val audio-duration">00:00</td>
+                        </tr>
+                    </table>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos quam, repudiandae, dignissimos quae ipsam quas dicta officia laboriosam incidunt explicabo ipsa corrupti consequatur ullam iste quia saepe praesentium amet cupiditate? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati maxime fugiat consequuntur eaque perferendis pariatur? Iste illo corporis voluptatibus consequatur vero in! Explicabo quod minima nobis dignissimos tempore repudiandae molestiae pariatur quia ipsam omnis sequi eum, ea ratione perspiciatis iusto debitis illum error, laboriosam, unde saepe dolorum. Officiis ipsum cum architecto, ullam aliquid maxime itaque harum eaque repellendus fugiat dolorum quo quae nemo inventore tenetur voluptate dolorem accusantium totam facilis exercitationem illum ducimus culpa dicta. Perferendis facilis, eos ipsam asperiores expedita reprehenderit odit consequuntur dolore veritatis rerum atque in eligendi molestiae omnis totam cum, laudantium, culpa adipisci possimus quis esse.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- // music  -->
+        <div class="music">
+            <audio src="../uploads/<%= songFind.url%>" class="music-play" hidden></audio>
+            <div class="music-lt">
+                <img class="music-img" src="../uploads/<%= songFind.poster%>" alt="">
+                <div class="music-name">
+                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum omnis corporis impedit fugiat veniam quas eveniet deleniti magni! Qui asperiores voluptas doloribus corporis fugit earum harum. Fuga reprehenderit sapiente incidunt!</h4>
+                    <small>Artist name</small>
+                </div>
+            </div>
+            <div class="music-center">
+                <div class="shuffle"><?xml version="1.0" ?><svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48H0z" fill="none"/><path d="M21.17 18.34L10.83 8 8 10.83l10.34 10.34 2.83-2.83zM29 8l4.09 4.09L8 37.17 10.83 40l25.09-25.09L40 19V8H29zm.66 18.83l-2.83 2.83 6.26 6.26L29 40h11V29l-4.09 4.09-6.25-6.26z"/></svg></div>
+                <div class="play-left"><?xml version="1.0" ?><svg style="transform: translate(0,0) rotate(180deg);" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><rect fill="none" height="256" width="256"/><path d="M228.1,121.2,84.2,33.2A8,8,0,0,0,72,40V216a8,8,0,0,0,12.2,6.8l143.9-88A7.9,7.9,0,0,0,228.1,121.2Z" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg></div>
+                <div class="play pause play-btn">
+                    <?xml version="1.0" ?><svg class="ply-btn" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21ZM12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23Z" fill="currentColor" fill-rule="evenodd"/><path d="M16 12L10 16.3301V7.66987L16 12Z" fill="currentColor"/></svg>
+                    <?xml version="1.0" ?><svg class="pau-btn" style="display: none;" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M9 9H11V15H9V9Z" fill="currentColor"/><path d="M15 15H13V9H15V15Z" fill="currentColor"/><path clip-rule="evenodd" d="M1 5C1 2.79086 2.79086 1 5 1H19C21.2091 1 23 2.79086 23 5V19C23 21.2091 21.2091 23 19 23H5C2.79086 23 1 21.2091 1 19V5ZM5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z" fill="currentColor" fill-rule="evenodd"/></svg>
+                </div>
+                <div class="play-right"><?xml version="1.0" ?><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><rect fill="none" height="256" width="256"/><path d="M228.1,121.2,84.2,33.2A8,8,0,0,0,72,40V216a8,8,0,0,0,12.2,6.8l143.9-88A7.9,7.9,0,0,0,228.1,121.2Z" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg></div>
+
+            </div>
+            <div class="music-right">
+                <a href="" class="play-download"><?xml version="1.0" ?><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M22,16 L22,20 C22,21.1045695 21.1045695,22 20,22 L4,22 C2.8954305,22 2,21.1045695 2,20 L2,16 L4,16 L4,20 L20,20 L20,16 L22,16 Z M13,12.5857864 L16.2928932,9.29289322 L17.7071068,10.7071068 L12,16.4142136 L6.29289322,10.7071068 L7.70710678,9.29289322 L11,12.5857864 L11,2 L13,2 L13,12.5857864 Z" fill-rule="evenodd"/></svg></a>
+                <small><span class="duration">00:00/00:00</span></small>
+                <div class="play-volume"><?xml version="1.0" ?><svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M6 18v12h8l10 10V8L14 18H6zm27 6c0-3.53-2.04-6.58-5-8.05v16.11c2.96-1.48 5-4.53 5-8.06zM28 6.46v4.13c5.78 1.72 10 7.07 10 13.41s-4.22 11.69-10 13.41v4.13c8.01-1.82 14-8.97 14-17.54S36.01 8.28 28 6.46z"/><path d="M0 0h48v48H0z" fill="none"/></svg></div>
+            </div>
+            <div class="music-pro">
+                <div class="music-progress"></div>
+            </div>
+        </div>
+        <!-- // footer  -->
+        <footer class="foter-ply">
+            <div class="footer-lt">
+                <a href="#">ABOUT US</a>
+                <a href="#">PRIVACY POLICY</a>
+                <a href="#">TERMS OF USE</a>
+                <a href="#">CONTACT US</a>
+                <a href="#">HELLOTUNES</a>
+            </div>
+            <div class="footer-rt">
+                <a href="#"><svg height="24" id="Layer_1" style="enable-background:new 0 0 512 512; fill:white;" version="1.1" viewBox="0 0 512 512" width="24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M346.8,80c22.3,0,43.8,9.3,59,25.6l6.1,6.5l8.7-1.7c4.5-0.9,8.9-1.9,13.3-3.1c-1,1.4-5.7,6.1-11,10.8  c-4.5,4-17.8,16.5-17.8,16.5s13,4.1,21.1,5s17.4-0.6,18.9-0.8c-2.8,2.3-7.8,5.8-10.8,7.9l-7,5.1l0.4,8.6c0.2,3.8,0.3,7.8,0.3,11.8  c0,30.2-5.9,61.8-17,91.5c-11.7,31.2-28.5,59.4-50,83.8c-23,26.1-50.2,46.5-81.1,60.8c-33.8,15.7-71.3,23.6-111.5,23.6  c-28.9,0-57.4-4.8-84.5-14.2c9.9-1.9,19.6-4.6,29.1-7.9c21.7-7.6,41.9-18.7,60.1-33l35.3-27.7l-44.9-0.8  c-26.1-0.5-49.7-13.4-64.3-33.9c7.3-0.5,14.5-1.8,21.5-3.7l60.7-20.2l-61.7-10.9c-29.6-5.9-52.8-27.9-61.3-55.8  c7.8,2,15.4,2.8,23.9,3.3c0,0,31.8,1.4,55.8-0.1c-13-6.2-46.4-29.2-46.4-29.2c-22.5-15.1-36-40.2-36-67.4c0-6.4,0.8-12.8,2.2-19  c21.9,22.4,47,41.1,75.1,55.5c37,19.1,76.9,29.8,118.6,31.9l21.2,1.1l-4.8-20.7c-1.4-5.9-2.1-12.1-2.1-18.5  C265.9,116.3,302.2,80,346.8,80 M346.8,64c-53.5,0-96.8,43.4-96.8,96.9c0,7.6,0.8,15,2.5,22.1C172,179,100.6,140.4,52.9,81.7  c-8.3,14.3-13.1,31-13.1,48.7c0,33.6,17.1,63.3,43.1,80.7C67,210.7,52,206.3,39,199c0,0.4,0,0.8,0,1.2c0,47,33.4,86.1,77.7,95  c-8.1,2.2-16.7,3.4-25.5,3.4c-6.2,0-12.3-0.6-18.2-1.8c12.3,38.5,48.1,66.5,90.5,67.3c-33.1,26-74.9,41.5-120.3,41.5  c-7.8,0-15.5-0.5-23.1-1.4C62.9,432,113.8,448,168.4,448C346.6,448,444,300.3,444,172.2c0-4.2-0.1-8.4-0.3-12.5  c18.9-13.7,35.3-30.7,48.3-50.2c-17.4,7.7-36,12.9-55.6,15.3c20-12,35.4-31,42.6-53.6c-18.7,11.1-39.4,19.2-61.5,23.5  C399.8,75.8,374.6,64,346.8,64L346.8,64z"/></svg></a>
+                <a href="#"><svg height="24" id="Layer_1" style="enable-background:new 0 0 512 512; fill:white;" version="1.1" viewBox="0 0 512 512" width="24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M288,192v-38.1c0-17.2,3.8-25.9,30.5-25.9H352V64h-55.9c-68.5,0-91.1,31.4-91.1,85.3V192h-45v64h45v192h83V256h56.4l7.6-64  H288z M330.2,240h-41.1H272v15.5V432h-51V255.5V240h-14.9H176v-32h30.1H221v-16.5v-42.2c0-24.5,5.4-41.2,15.5-51.8  C247.7,85.5,267.6,80,296.1,80H336v32h-17.5c-12,0-27.5,1.1-37.1,11.7c-8.1,9-9.4,20.1-9.4,30.1v37.6V208h17.1H334L330.2,240z"/></svg></a>
+                <a href="#"><svg height="24" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2; fill:white;" fill="white" version="1.1" viewBox="0 0 600 600" width="24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="matrix(1.01619,0,0,1.01619,44,43.8384)"><path d="M251.921,0.159C183.503,0.159 174.924,0.449 148.054,1.675C121.24,2.899 102.927,7.157 86.902,13.385C70.336,19.823 56.287,28.437 42.282,42.442C28.277,56.447 19.663,70.496 13.225,87.062C6.997,103.086 2.739,121.399 1.515,148.213C0.289,175.083 0,183.662 0,252.08C0,320.497 0.289,329.076 1.515,355.946C2.739,382.76 6.997,401.073 13.225,417.097C19.663,433.663 28.277,447.712 42.282,461.718C56.287,475.723 70.336,484.337 86.902,490.775C102.927,497.002 121.24,501.261 148.054,502.484C174.924,503.71 183.503,504 251.921,504C320.338,504 328.917,503.71 355.787,502.484C382.601,501.261 400.914,497.002 416.938,490.775C433.504,484.337 447.553,475.723 461.559,461.718C475.564,447.712 484.178,433.663 490.616,417.097C496.843,401.073 501.102,382.76 502.325,355.946C503.551,329.076 503.841,320.497 503.841,252.08C503.841,183.662 503.551,175.083 502.325,148.213C501.102,121.399 496.843,103.086 490.616,87.062C484.178,70.496 475.564,56.447 461.559,42.442C447.553,28.437 433.504,19.823 416.938,13.385C400.914,7.157 382.601,2.899 355.787,1.675C328.917,0.449 320.338,0.159 251.921,0.159ZM251.921,45.551C319.186,45.551 327.154,45.807 353.718,47.019C378.28,48.14 391.619,52.244 400.496,55.693C412.255,60.263 420.647,65.723 429.462,74.538C438.278,83.353 443.737,91.746 448.307,103.504C451.757,112.381 455.861,125.72 456.981,150.282C458.193,176.846 458.45,184.814 458.45,252.08C458.45,319.345 458.193,327.313 456.981,353.877C455.861,378.439 451.757,391.778 448.307,400.655C443.737,412.414 438.278,420.806 429.462,429.621C420.647,438.437 412.255,443.896 400.496,448.466C391.619,451.916 378.28,456.02 353.718,457.14C327.158,458.352 319.191,458.609 251.921,458.609C184.65,458.609 176.684,458.352 150.123,457.14C125.561,456.02 112.222,451.916 103.345,448.466C91.586,443.896 83.194,438.437 74.378,429.621C65.563,420.806 60.103,412.414 55.534,400.655C52.084,391.778 47.98,378.439 46.859,353.877C45.647,327.313 45.391,319.345 45.391,252.08C45.391,184.814 45.647,176.846 46.859,150.282C47.98,125.72 52.084,112.381 55.534,103.504C60.103,91.746 65.563,83.353 74.378,74.538C83.194,65.723 91.586,60.263 103.345,55.693C112.222,52.244 125.561,48.14 150.123,47.019C176.687,45.807 184.655,45.551 251.921,45.551Z" style="fill-rule:nonzero;"/><path d="M251.921,336.053C205.543,336.053 167.947,298.457 167.947,252.08C167.947,205.702 205.543,168.106 251.921,168.106C298.298,168.106 335.894,205.702 335.894,252.08C335.894,298.457 298.298,336.053 251.921,336.053ZM251.921,122.715C180.474,122.715 122.556,180.633 122.556,252.08C122.556,323.526 180.474,381.444 251.921,381.444C323.367,381.444 381.285,323.526 381.285,252.08C381.285,180.633 323.367,122.715 251.921,122.715Z" style="fill:rgb(255, 255, 255);fill-rule:nonzero;"/><path d="M416.627,117.604C416.627,134.3 403.092,147.834 386.396,147.834C369.701,147.834 356.166,134.3 356.166,117.604C356.166,100.908 369.701,87.374 386.396,87.374C403.092,87.374 416.627,100.908 416.627,117.604Z" style="fill:rgb(3,4,4);fill-rule:nonzero;"/></g></svg></a>
+                <a href="#"><svg width="24" height="24" fill="white" id="Layer_1" style="enable-background:new 0 0 100 100;" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M91,12.3C86.7,8.6,79.9,8,73,10.6c-7.2,2.7-15.5,9.6-17.3,20.8c-0.1,0.4,0.1,0.8,0.4,1c0.3,0.2,0.7,0.2,1.1,0  c3.8-2.3,7.2-2.6,9.2-0.7c2.4,2.3,2.4,7.2-0.1,12c-6.7,12.7-10.6,16-11.7,16c-2,0-4.7-11-6.3-17.6c-0.6-2.6-1.1-5.7-1.7-8.9  c-1.5-9.1-3-18.5-8.1-22.1c-1.9-1.3-4.1-1.7-6.7-1.2C19.9,12.2,4.9,30.4,4.2,31.2c-0.3,0.4-0.3,0.9,0,1.2l3.6,4.9  c0.2,0.2,0.4,0.4,0.7,0.4c0.3,0,0.5,0,0.8-0.2c2.1-1.7,7.2-4.9,8.7-3.2c1.2,1.5,4.9,13.9,7.9,23.8c3,9.8,5.7,19.1,7.3,22.3  c1.8,3.8,5.7,8.8,11,10.2c1,0.3,2,0.4,3,0.4c2.2,0,4.4-0.7,6.5-2.1c7.6-5,36.8-29.7,42-59.6C97.2,19.7,94,14.7,91,12.3z"/></svg></a>
+                <a href="#"><svg width="24" height="24" fill="white" id="Layer_1" style="enable-background:new 0 0 100 100;" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50,4C24.7,4,4,24.7,4,50s20.6,46,46,46s46-20.6,46-46S75.4,4,50,4z M71.6,71.5c0,0,0,0.1-0.1,0.1c-0.8,1.2-2,1.8-3.2,1.8  c-0.7,0-1.4-0.2-2-0.6c-10.2-6.3-23.3-7.7-38.8-4.1c-2.1,0.6-4-0.9-4.5-2.7c-0.6-2.3,0.9-4.1,2.7-4.6c17.7-4,32.6-2.3,44.4,5  c0.9,0.4,1.5,1,1.8,1.9C72.2,69.3,72.1,70.5,71.6,71.5z M76.9,59.3L76.9,59.3c-0.8,1.1-1.9,1.9-3.2,2.1c-0.2,0-0.5,0.1-0.7,0.1  c-0.8,0-1.6-0.3-2.3-0.7c-12-7.3-30.1-9.4-43.9-5c-2.5,0.6-5-0.7-5.6-3c-0.6-2.5,0.7-4.9,3-5.5c16.5-5,37.2-2.5,51.4,6.2  c0.8,0.4,1.5,1.3,1.8,2.5C77.9,57,77.6,58.3,76.9,59.3z M83.2,45.6c-1,1.4-2.7,2.1-4.4,2.1c-0.9,0-1.9-0.2-2.7-0.7c0,0,0,0,0,0  c-13.9-8.3-37.8-9.3-51.4-5.1c-2.7,0.8-5.5-0.7-6.4-3.3c-0.8-2.7,0.7-5.6,3.3-6.4c16.2-4.8,43-3.8,59.8,6.2  C83.8,39.6,84.7,42.9,83.2,45.6C83.3,45.5,83.3,45.5,83.2,45.6z"/></svg></a>
+            </div>
+            
+        </footer>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        let audio = document.querySelector(".music-play");
+        let ply = 0;
+        document.querySelectorAll(".play-btn").forEach(elem=>{
+            elem.addEventListener("click",()=>{
+                if(ply == 0){
+                    document.querySelectorAll(".ply-btn").forEach(pl=>{
+                        pl.style.display = "none"
+                    })
+                    document.querySelectorAll(".pau-btn").forEach(py=>{
+                        py.style.display = "inline"
+                    })
+                    document.querySelector(".ply-now").textContent = "Pause now"
+                    audio.play()
+                    ply = 1;
+                }else{
+                    document.querySelectorAll(".ply-btn").forEach(pl=>{
+                        pl.style.display = "inline"
+                    })
+                    document.querySelectorAll(".pau-btn").forEach(py=>{
+                        py.style.display = "none"
+                    })
+                    document.querySelector(".ply-now").textContent = "Play now"
+                    audio.pause()
+                    audio.load()
+                    ply = 0;
+                }
+            })
+        })
+
+        document.addEventListener("DOMContentLoaded", ()=>{
+            audio.addEventListener('timeupdate', () => {
+            const currentTime = audio.currentTime;
+                const duration = audio.duration;
+                const progress = (currentTime / duration) * 100;
+                document.querySelector(".music-progress").style.width = `${progress}%`;
+
+                const currentMinutes = Math.floor(currentTime / 60);
+                const currentSeconds = Math.floor(currentTime % 60);
+                const durationMinutes = Math.floor(duration / 60);
+                const durationSeconds = Math.floor(duration % 60);
+
+                const formattedCurrentTime = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
+                const formattedDuration = `${durationMinutes}:${durationSeconds < 10 ? '0' : ''}${durationSeconds}`;
+            if(ply == 1){
+                document.querySelector(".duration").textContent = `${formattedCurrentTime} / ${formattedDuration}`;
+                document.querySelectorAll(".audio-duration").forEach(elem=>{
+                    elem.textContent = `${formattedDuration}`;
+                })
+            }
+        });
+        })
+
+        document.querySelectorAll(".card-pg").forEach(elem=>{
+            const myslide =  elem.querySelector(".card-pg .mySwiper")
+            const mynext =  elem.querySelector(".card-pg .swiper-button-next")
+            const mypre =  elem.querySelector(".card-pg .swiper-button-prev")
+            var swiper = new Swiper(myslide, {
+            slidesPerView: 6.5,
+            // centeredSlides: true,
+            spaceBetween: 20,
+            loop:true,
+            grabCursor: true,
+            // mousewheel: true,
+            keyboard: true,
+            navigation: {
+                nextEl: mynext,
+                prevEl: mypre,
+            },
+        });
+        })
+
+        let menu = 0;
+        document.querySelector(".menu-btn").addEventListener("click",()=>{
+            if(menu == 0){
+                document.querySelector(".menu").style.display = "flex"
+                menu = 1;
+            }else{
+                document.querySelector(".menu").style.display = "none"
+                menu = 0
+            }
+        })
+    </script>
+</body>
+</html>
